@@ -1,0 +1,46 @@
+<div class="container d-flex h-100 flex-column pb-4">
+  <h5 class="display-5 mt-3">Eskey Managment</h5>
+    <section class="menu d-flex  mb-1 mt-3">
+      <div class="input-group">
+        <input type="text" class="form-control app-background" placeholder="Search for deliveries"
+          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        <button class="btn btn-outline-secondary" [routerLink]="'create'" type="button" id="button-addon2">Create</button>
+      </div>
+    </section>
+  <div class="activity-list-menu mt-3 d-flex justify-content-end border border-1 border-dark rounded-top pt-2 pb-2 pe-1 ps-1">
+    <div class="me-auto ">
+      <div class="btn-group" role="group1" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check check-status" name="btnStatus" id="btnStatus1" autocomplete="off" checked>
+        <label class="btn btn-outline-dark border-0" for="btnStatus1"><i
+            class="bi bi-record-circle text-success"></i><strong> 0 Deliveries</strong></label>
+
+        <input type="radio" class="btn-check check-status" name="btnStatus" id="btnStatus2" autocomplete="off">
+        <label class="btn btn-outline-dark border-0" for="btnStatus2"><i class="bi bi-check-lg text-info"></i><strong> 0
+            Received</strong></label>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Sort
+      </a>
+      <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item bg-dark" href="#">Newest</a></li>
+        <li><a class="dropdown-item bg-dark" href="#">Oldest</a></li>
+        <li><a class="dropdown-item bg-dark" href="#">Most commented</a></li>
+        <li><a class="dropdown-item bg-dark" href="#">Recently updated</a></li>
+      </ul>
+    </div>
+  </div>
+  <ng-container *ngIf="true; else elseHasItems">
+  <div class="item-list border border-1 d-flex flex-column justify-content-center align-items-center border-dark flex-fill">
+    <h2><i class="bi bi-exclamation-circle"></i></h2>
+    <h2>No results matched your search</h2>
+    <h5>Try searching a different filter options</h5>
+  </div>
+  </ng-container>
+  <ng-template #elseHasItems>
+
+  </ng-template>
+</div>

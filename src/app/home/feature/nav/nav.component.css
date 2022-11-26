@@ -1,0 +1,30 @@
+
+nav {
+  background-color: #161C23 !important;
+}
+
+.nav-link.active {
+  color: white;
+  border: 1px solid #238636;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+  font-weight: bold !important;
+}
+
+
+.nav-item a {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.notif {
+  font-size: 23px;
+}
+
+.notif.notify i {
+  color: red !important;
+}
+
+.profile-icon {
+  border-radius: 25px !important;
+}

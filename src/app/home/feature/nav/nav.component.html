@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="display-5 me-4" href="#"><i class="bi bi-file-medical"></i></a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+          [routerLink]="'dashboard'"
+          [routerLinkActive]="'active'"
+          class="nav-link " aria-current="page" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a
+           [routerLink]="'activities'"
+          [routerLinkActive]="'active'"
+          class="nav-link" href="#">Activities</a>
+        </li>
+      <li class="nav-item">
+        <a [routerLink]="'eskeys'" [routerLinkActive]="'active'" class="nav-link" href="#">Eskeys</a>
+      </li>
+      </ul>
+      <form class="d-flex align-items-center">
+       <button type="button" class="btn notif "><i class="bi bi-bell position-relative">
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1">
+            <span
+              class="visually-hidden">unread messages</span>
+          </span>
+       </i>
+      </button>
+      <div class="dropdown dropstart">
+          <a class="btn dropdown-toggle " id="dropdownMenu2" data-bs-toggle="dropdown">
+            <img src="../../../../assets/default-profile.png " class="rounded profile-icon "
+             height="25" alt="">
+          </a>
+          <ul  class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu2">
+            <li><a class="dropdown-item" [routerLink]="'settings'"><i class="bi bi-gear"></i> Settings</a></li>
+            <li><a class="dropdown-item" (click)="logOut()" type="button"><i class="bi bi-box-arrow-left"></i> Sign out</a></li>
+          </ul>
+      </div>
+      </form>
+    </div>
+  </div>
+</nav>

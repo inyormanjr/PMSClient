@@ -1,0 +1,45 @@
+
+
+
+h3 {
+  font-weight:300;
+}
+
+
+
+.card.login-card-footer {
+  background-color: transparent;
+  border-color: #161C23;
+  border-width: 2px;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+input {
+  border: 0.2px solid #969DA6 !important;
+  color: #969DA6 !important;
+}
+
+
+a {
+  color: #5197E8 !important;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  color: whitesmoke !important;
+  font-weight: 500;
+  background-color: #238636;
+}
+
+button:hover {
+  color: whitesmoke !important;
+  background-color: #308e43;
+}

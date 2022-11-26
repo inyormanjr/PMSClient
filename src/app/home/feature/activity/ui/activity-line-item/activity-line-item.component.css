@@ -1,0 +1,12 @@
+.activity-item-line:hover {
+  background-color: #161C23;
+}
+
+a.comment-count-icon {
+  text-decoration: none !important;
+  text-align: center;
+}
+
+a.comment-count-icon:hover {
+  color: #5197E8 !important;
+}

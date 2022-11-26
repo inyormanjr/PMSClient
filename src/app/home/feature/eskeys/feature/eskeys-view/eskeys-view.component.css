@@ -1,0 +1,10 @@
+input.check-status+label {
+  color: grey;
+  font-weight: lighter !important;
+}
+
+input.check-status:checked+label {
+  color: #C9D1D9;
+  font-weight: bolder !important;
+  background-color: transparent !important;
+}
