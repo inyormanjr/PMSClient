@@ -4,7 +4,7 @@ export interface Activity {
   title: string;
   description: string;
   createdBy: string;
-  tags: string[];
+  labels: string[];
   level: string;
   assignees: string[];
   comments: ActivityComment[];
@@ -15,8 +15,8 @@ export interface Activity {
 
 export interface ActivityComment {
   _id: string;
-  username: string;
   avatar: string;
-  comment: string;
+  body: string;
+  by: string;
   createdAt: Date;
 }

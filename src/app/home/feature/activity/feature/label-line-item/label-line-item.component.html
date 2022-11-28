@@ -1,0 +1,49 @@
+
+<div class="line-item-container p-2 ps-3 pe-3" *ngIf="this.label" >
+<div class="label-line-item  app-background  d-flex flex-row  justify-content-evenly align-items-center">
+  <div class="label-name  w-100">
+    <span class="label-badge   text-white"
+    [ngClass]="this.label.bgClass " >{{this.label.name}}</span>
+  </div>
+  <div class="label-description  w-100">
+    <small [hidden]="isEditMode" style="font-size: 12px;">{{this.label.description}}</small>
+  </div>
+  <div class="actions  w-100 d-flex justify-content-end">
+    <a [hidden]="isEditMode" class=" btn me-2" style="font-size: 12px;" (click)="toggleEditMode()">Edit</a>
+    <a class="btn" style="font-size: 12px;" >Delete</a>
+  </div>
+</div>
+
+<ng-container *ngIf="isEditMode && editableLabel ">
+  <form [formGroup]="labelForm" class="row">
+  <div class="form-group mt-2 col-3 mb-3" style="font-size: 14px; font-weight: 800;">
+    <label for="emailaddress">Label name </label>
+    <input style="font-size: 12px; padding: 3px;" formControlName="name" type="text" name="text"
+      class="form-control app-background">
+  </div>
+  <div class="form-group mt-2 col-3 mb-3" style="font-size: 14px; font-weight: 800;">
+    <label for="description">Description </label>
+    <input formControlName="description" style="font-size: 12px; padding: 3px;" type="text" name="text"
+      class="form-control app-background">
+  </div>
+  <div class="form-group mt-2 col-3 mb-3" style="font-size: 14px; font-weight: 800;">
+    <label for="description">Color </label>
+    <select style="font-size: 12px; padding: 3px;" formControlName="bgClass" class="form-select form-control  app-background" aria-label="Default select example">
+      <option [value]="'bg-primary'">Blue</option>
+      <option [value]="'bg-secondary'">Grey</option>
+      <option [value]="'bg-danger'">Red</option>
+      <option [value]="'bg-info'">Light Blue</option>
+      <option [value]="'bg-warning'">Orange</option>
+      <option [value]="'bg-dark'">Dark</option>
+    </select>
+  </div>
+  <div class="actions form-group  col-md-3 d-flex align-items-center  justify-content-end">
+    <a style="font-size: 12px;" name="" id="" class="btn btn-light text-dark me-2 btn-sm"  role="button" (click)="toggleEditMode()">Cancel</a>
+    <a style="font-size: 12px;" name="" id="" class="btn btn-success text-white btn-sm"  role="button" (click)="updateLabel()">Save Changes</a>
+  </div>
+  </form>
+</ng-container>
+</div>
+
+
+

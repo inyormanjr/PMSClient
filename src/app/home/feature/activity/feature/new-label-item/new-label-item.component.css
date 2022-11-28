@@ -1,0 +1,12 @@
+.line-item-container {
+     border: 1px solid grey;
+}
+
+.label-badge {
+  opacity: 0.8;
+  padding: 3px 6px 3px 6px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  font-size: 12px;
+  color: white;
+}

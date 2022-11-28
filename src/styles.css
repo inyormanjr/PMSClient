@@ -5,8 +5,12 @@ body {
   background-color: #0D1117 !important;
 }
 
-* {
+/* * {
   color: #969DA6 !important;
+} */
+
+* {
+  color: whitesmoke !important;
 }
 
 :root .app-background {
@@ -17,4 +21,14 @@ body {
   background-color: #161C23;
 }
 
+:root .app-border {
+  border: 0.7px solid rgb(103, 103, 103);
+}
 
+:root .sub-menu-section-bg {
+  background-color: #161C23;
+}
+
+#toast-container {
+  color: white;
+}

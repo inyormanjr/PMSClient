@@ -1,0 +1,42 @@
+<div class="h-100 pt-4 p-4 d-flex flex-column container-fluid">
+  <h3 class="mb-3"><i class="bi bi-tag"></i> Labels</h3>
+  <div class="menu row mb-4">
+    <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control app-background" placeholder="Search all labels"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+        <a name="" id="" class="btn btn-success text-white" (click)="createNewLabel()" role="button">New label</a>
+    </div>
+  </div>
+
+  <app-new-label-item [label]="newLabel"></app-new-label-item>
+
+  <div class=" app-background flex-fill d-flex flex-column" >
+    <div class="label-list-menu sub-menu-section-bg app-border  d-flex justify-content-end  rounded-top pt-2 pb-2 pe-1 ps-1">
+
+      <div class="dropdown">
+        <a style="font-size: 12px;" class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Sort
+        </a>
+        <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+          <li><a style="font-size: 12px;" class="dropdown-item bg-dark" href="#">Alphabetical</a></li>
+          <li><a style="font-size: 12px;" class="dropdown-item bg-dark" href="#">Oldest</a></li>
+          <li><a style="font-size: 12px;" class="dropdown-item bg-dark" href="#">Most commented</a></li>
+        </ul>
+      </div>
+    </div>
+    <ng-container *ngIf="labels.length > 0; else elseTemplate">
+      <app-label-line-item *ngFor="let label of labels; let i = index;" [label]="label"  ></app-label-line-item>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="no-data d-flex flex-column flex-fill justify-content-center align-items-center">
+          <h5>No Data Found</h5>
+      </div>
+    </ng-template>
+  </div>
+</div>

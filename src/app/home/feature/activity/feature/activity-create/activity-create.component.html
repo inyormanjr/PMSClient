@@ -9,7 +9,7 @@
         <textarea class="form-control app-background border border-2 border-dark" placeholder="Description" name="" id="" rows="15"></textarea>
       </div>
       <div class="action mb-2 d-flex justify-content-end">
-        <a name="" id="" class="btn btn-success" href="#" role="button">Submit new activity</a>
+        <a name="" id="" class="btn btn-success text-white" href="#" role="button">Submit new activity</a>
       </div>
   </div>
   <div class="col-3 d-flex flex-column">
@@ -26,7 +26,45 @@
     <div class="section d-flex flex-column">
       <div class="assignee-menu  d-flex align-items-center justify-content-between">
         <strong>Labels</strong>
-        <a name="" id="" class="btn" href="#" role="button"><i class="bi bi-gear"></i></a>
+
+        <div class="dropdown d-flex flex-column h-100 " >
+              <a name="" id="" class="btn"  role="button" data-bs-toggle="dropdown"
+            aria-expanded="false"><i class="bi bi-gear"></i></a>
+          <div class="dropdown-menu  app-background  flex-fill flex-column  bg-danger" aria-labelledby="dropdownMenuButton2" style="width: 310px;   border: 0.8px solid grey;">
+            <div class="title-section ps-2 ">
+              <strong>Apply label for this activity</strong>
+            </div>
+            <hr>
+            <div class="filter-section ps-2 pe-2 mb-2">
+                  <input type="text" class="form-control app-background" placeholder="Filter labels" aria-label="Input group example" aria-describedby="btnGroupAddon">
+            </div>
+          <div class="list-group bg-dark flex-fill" style="overflow-y: auto; max-height: 35vh;"  >
+            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
+              <strong>Bug</strong>
+              <p>Something went wrong</p>
+            </a>
+            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
+              <strong>Bug</strong>
+              <p>Something went wrong</p>
+            </a>
+            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
+              <strong>Bug</strong>
+              <p>Something went wrong</p>
+            </a>
+            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
+              <strong>Bug</strong>
+              <p>Something went wrong</p>
+            </a>
+            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
+              <strong>Bug</strong>
+              <p>Something went wrong</p>
+            </a>
+          </div>
+          <a [routerLink]="['../labels']" class="list-group-item  p-2 pt-3 ps-5 d-flex flex-row align-items-center list-group-item-action " aria-current="true">
+            <i class="bi bi-pencil me-2"></i> Edit Labels
+          </a>
+          </div>
+        </div>
       </div>
       <div class="assignee-menu mb-2 d-flex align-items-center justify-content-between">
         None yet
