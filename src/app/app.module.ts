@@ -10,6 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorInterceptor } from './shared/http/error.interceptor';
+import { StoreModule } from '@ngrx/store';
+import * as fromMain from './data-access/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 
 export function tokenGetter() {
@@ -30,6 +34,16 @@ export function tokenGetter() {
         allowedDomains: [`${environment.allowedDomain}`],
         disallowedRoutes: [`${environment.disallowedRoutes}`],
       },
+    }),
+    StoreModule.forRoot({}, {}),
+    StoreModule.forFeature(
+      fromMain.mainFeatureKey,
+      fromMain.reducers
+    ),
+     EffectsModule.forRoot(),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
     }),
   ],
   providers: [

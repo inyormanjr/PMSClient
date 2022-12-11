@@ -12,9 +12,7 @@
         <a name="" id="" class="btn btn-success text-white" (click)="createNewLabel()" role="button">New label</a>
     </div>
   </div>
-
-  <app-new-label-item [label]="newLabel"></app-new-label-item>
-
+  <app-new-label-item [label]="newLabel" (saveLabelButton)="createLabel($event)"></app-new-label-item>
   <div class=" app-background flex-fill d-flex flex-column" >
     <div class="label-list-menu sub-menu-section-bg app-border  d-flex justify-content-end  rounded-top pt-2 pb-2 pe-1 ps-1">
 
@@ -31,7 +29,7 @@
       </div>
     </div>
     <ng-container *ngIf="labels.length > 0; else elseTemplate">
-      <app-label-line-item *ngFor="let label of labels; let i = index;" [label]="label"  ></app-label-line-item>
+      <app-label-line-item *ngFor="let label of labels; let i = index;" [label]="label" (deleteButtonClicked)="deleteLabel(i, label)" ></app-label-line-item>
     </ng-container>
     <ng-template #elseTemplate>
       <div class="no-data d-flex flex-column flex-fill justify-content-center align-items-center">

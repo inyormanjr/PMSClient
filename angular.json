@@ -1,7 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "c86f48f2-4cc5-4dc5-97cf-d08753a42f6c"
+    "analytics": "c86f48f2-4cc5-4dc5-97cf-d08753a42f6c",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ],
+    "defaultCollection": "@ngrx/schematics"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -36,7 +40,7 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-               "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ]
           },
           "configurations": {

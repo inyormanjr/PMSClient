@@ -33,4 +33,10 @@ export class ActivityService extends BaseService<Activity> {
       .post(this.baseURL + this.subServiceRoute, label)
       .pipe(map((x: any) => x.data));
   }
+
+  deleteLabel(id: any): Observable<any> {
+    return this.httpClient
+      .delete(this.baseURL + this.subServiceRoute + `/${id}`)
+      .pipe(map((x: any) => x));
+  }
 }

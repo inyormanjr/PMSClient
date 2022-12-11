@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Label } from 'src/app/shared/models/label';
@@ -13,6 +13,7 @@ export class NewLabelItemComponent implements OnInit {
   isEditMode = false;
   @Input() label: Label | undefined;
   labelForm: FormGroup;
+  @Output() saveLabelButton: EventEmitter<any> = new EventEmitter<any>();
   constructor(
     private activityService: ActivityService,
     private fB: FormBuilder,
@@ -39,12 +40,16 @@ export class NewLabelItemComponent implements OnInit {
 
   createLabel() {
     const updatedLabel = this.labelForm.value;
-    this.activityService.createLabel(updatedLabel).subscribe((x) => {
-       this.label = undefined;
-       this.labelForm.reset();
-      this.toastR.success('New label created');
-    }, err => {
-      console.log(err);
-    });
+    // this.activityService.createLabel(updatedLabel).subscribe((x) => {
+    //    this.label = undefined;
+    //    this.labelForm.reset();
+    //   this.toastR.success('New label created');
+    // }, err => {
+    //   console.log(err);
+    // });
+
+    this.saveLabelButton.emit(updatedLabel);
+    this.label = undefined;
+    this.labelForm.reset();
   }
 }

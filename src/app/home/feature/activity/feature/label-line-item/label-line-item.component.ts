@@ -2,7 +2,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivityService } from './../../data-access/activity.service';
 import { Label } from './../../../../../shared/models/label';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-label-line-item',
@@ -12,6 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LabelLineItemComponent implements OnInit {
   isEditMode = false;
   @Input() label: Label | undefined;
+  @Output() deleteButtonClicked: EventEmitter<string> = new EventEmitter<string>();
   editableLabel: Label | undefined;
   labelForm: FormGroup;
   constructor(
@@ -27,7 +29,10 @@ export class LabelLineItemComponent implements OnInit {
     });
   }
 
-
+  onDelete() {
+    console.log('test');
+    this.deleteButtonClicked.emit('Test');
+  }
 
   ngOnInit(): void {
     if (this.label) {

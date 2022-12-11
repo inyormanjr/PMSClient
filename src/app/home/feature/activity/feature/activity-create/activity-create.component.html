@@ -1,12 +1,12 @@
-<form class="container container-md container-lg container-sm d-flex flex-column h-100 pt-5">
+<form [formGroup]="activityForm" class="container container-md container-lg container-sm d-flex flex-column h-100 pt-5">
  <div class="row">
   <div class="col-9 card p-2">
     <div class="mb-3">
       <input type="text"
-        class="form-control app-background border border-2 border-dark" name="" id="" aria-describedby="helpId" placeholder="title">
+        class="form-control app-background border border-2 border-dark" formControlName="title" name="" id="" aria-describedby="helpId" placeholder="title">
     </div>
       <div class="mb-3">
-        <textarea class="form-control app-background border border-2 border-dark" placeholder="Description" name="" id="" rows="15"></textarea>
+        <textarea class="form-control app-background border border-2 border-dark" placeholder="Description"  formControlName="description" name="" id="" rows="15"></textarea>
       </div>
       <div class="action mb-2 d-flex justify-content-end">
         <a name="" id="" class="btn btn-success text-white" href="#" role="button">Submit new activity</a>
@@ -24,7 +24,7 @@
       <hr>
     </div>
     <div class="section d-flex flex-column">
-      <div class="assignee-menu  d-flex align-items-center justify-content-between">
+      <div class="labels-menu  d-flex align-items-center justify-content-between">
         <strong>Labels</strong>
 
         <div class="dropdown d-flex flex-column h-100 " >
@@ -38,26 +38,16 @@
             <div class="filter-section ps-2 pe-2 mb-2">
                   <input type="text" class="form-control app-background" placeholder="Filter labels" aria-label="Input group example" aria-describedby="btnGroupAddon">
             </div>
-          <div class="list-group bg-dark flex-fill" style="overflow-y: auto; max-height: 35vh;"  >
-            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
-              <strong>Bug</strong>
-              <p>Something went wrong</p>
-            </a>
-            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
-              <strong>Bug</strong>
-              <p>Something went wrong</p>
-            </a>
-            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
-              <strong>Bug</strong>
-              <p>Something went wrong</p>
-            </a>
-            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
-              <strong>Bug</strong>
-              <p>Something went wrong</p>
-            </a>
-            <a href="#" class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
-              <strong>Bug</strong>
-              <p>Something went wrong</p>
+          <div *ngIf="labels$ | async as labels" class="list-group bg-dark flex-fill" style="overflow-y: auto; max-height: 35vh;"  >
+            <a *ngFor="let label of labels; let i=index"
+            (click)="addLabel(label)"
+            class="list-group-item bg-dark d-flex flex-column list-group-item-action " aria-current="true">
+             <div class="row mb-2">
+              <div class="col-3">
+              <span class="badge border border-1 border-white " [ngClass]="label.bgClass">{{label.name}}</span>
+              </div>
+             </div>
+              <small class=""><p>{{label.description}}</p></small>
             </a>
           </div>
           <a [routerLink]="['../labels']" class="list-group-item  p-2 pt-3 ps-5 d-flex flex-row align-items-center list-group-item-action " aria-current="true">
@@ -66,8 +56,19 @@
           </div>
         </div>
       </div>
-      <div class="assignee-menu mb-2 d-flex align-items-center justify-content-between">
+      <div class="label-menu mb-2 d-flex align-items-center justify-content-between">
+       <ng-container *ngIf="activityForm.value.labels.length > 0; else elseTemplate">
+        <div class="container-fluid">
+          <span *ngFor="let label of activityForm.value.labels; let i=index" class="badge me-1  mb-2"
+            [ngClass]="label.bgClass">{{label.name}}</span>
+        </div>
+
+
+       </ng-container>
+       <ng-template #elseTemplate>
         None yet
+       </ng-template>
+
       </div>
       <hr>
     </div>
